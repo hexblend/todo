@@ -1,0 +1,41 @@
+@import '_vars.sass'
+body
+    width: 100%
+
+    .header
+        background: url('../img/header.jpg') no-repeat center center
+        background-size: cover
+        height: 250px
+        border-bottom-left-radius: 10px
+        border-bottom-right-radius: 10px
+        h1 
+            margin: 0
+            padding-top: 50px
+            text-transform: uppercase
+            font-weight: 900
+            color: $white
+            font-size: 4em
+        p
+            font-size: 1.3em
+            color: $orange
+            letter-spacing: 0.1em
+    
+    .container
+        form 
+            margin-top: 20px
+            .input-field
+                width: 90% !important
+            .input-field label
+                color: $black
+            .input-field input[type=text]:focus + label
+                color: $orange
+            .input-field input[type=text]:focus 
+                border-bottom: 1px solid $orange
+                box-shadow: 0 1px 0 0 $orange
+            @media(max-width:600px)
+                .input-field
+                    width: 85% !important
+            button
+                margin-top: 15px
+
+        
