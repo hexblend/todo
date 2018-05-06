@@ -6,8 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,900" rel="stylesheet">
+    <!-- Material Design Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Material Design CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" rel="stylesheet">
+    <link href="Assets/css/materialize.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="Assets/css/main.min.css" rel="stylesheet">
     <!-- Title -->
@@ -28,10 +30,72 @@
                 <button class="btn-floating waves-effect waves-light red" type="submit" name="action">+</button>
             </div>
         </form>
+
+
+        <h3 class="center">All Activities
+            <a class="waves-effect waves-red btn-flat">
+                <i class="material-icons">arrow_drop_up</i>
+            </a>
+        </h3>
+
+        <!-- <div class="divider"></div> -->
+
+        
+
+        <ul class="collection todo-collection">
+            <li class="collection-item">
+                <div>First Activity
+                    <a href="#!" class="secondary-content">
+                        <i class="material-icons unchecked-box">check_box_outline_blank</i>
+                    </a>
+                </div>
+            </li>
+
+            <li class="collection-item">
+                <div>Second Activity
+                    <a href="#!" class="secondary-content">
+                        <i class="material-icons unchecked-box">check_box_outline_blank</i>
+                    </a>
+                </div>
+            </li>
+        </ul>
+
+        <h3 class="center">Done
+            <a class="waves-effect waves-red btn-flat">
+                <i class="material-icons">arrow_drop_up</i>
+            </a>
+        </h3>
+
+        <!-- <div class="divider"></div> -->
+
+        <ul class="collection done-collection">
+            <li class="collection-item">
+                <div>Third Activity
+                    <a href="#!" class="secondary-content">
+                        <i class="material-icons checked-box">check_box</i>
+                    </a>
+                </div>
+            </li>
+        
+            <li class="collection-item">
+                <div>Fourth Activity
+                    <a href="#!" class="secondary-content">
+                        <i class="material-icons checked-box">check_box</i>
+                    </a>
+                </div>
+            </li>
+        </ul>
+
+        <div class="center end-btn-container">
+            <a class="waves-effect waves-light btn grey">End of the day</a>
+        </div>
+
     </div>
 
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <!-- Material Design JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    <script src="Assets/js/materialize.js"></script>
     <!-- Custom JS -->
     <script type="text/javascript" src="Assets/js/main.js"></script>
 </body>
