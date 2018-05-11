@@ -24,16 +24,16 @@
         <form class="col s12">
             <div class="row center">
                 <div class="input-field col s11">
-                    <input id="add_activity" type="text" class="validate">
+                    <input id="add_activity" type="text" class="validate" autocomplete="off">
                     <label for="add_activity">Add activity</label>
                 </div>
-                <button class="btn-floating waves-effect waves-light red" type="submit" name="action">+</button>
+                <button class="btn-floating waves-effect waves-light red" type="submit" name="action" onclick="add_input_activity();">+</button>
             </div>
         </form>
 
 
         <h3 class="center">All Activities
-            <a class="waves-effect waves-red btn-flat">
+            <a href="#!" class="waves-effect waves-red btn-flat dropdown_btn_a" onclick="hide_section_a();">
                 <i class="material-icons">arrow_drop_up</i>
             </a>
         </h3>
@@ -48,6 +48,9 @@
                     <a href="#!" class="secondary-content">
                         <i class="material-icons unchecked-box">check_box_outline_blank</i>
                     </a>
+                    <a href="#!" class="secondary-content">
+                        <i class="material-icons delete-icon">delete</i>
+                    </a>
                 </div>
             </li>
 
@@ -56,12 +59,16 @@
                     <a href="#!" class="secondary-content">
                         <i class="material-icons unchecked-box">check_box_outline_blank</i>
                     </a>
+                    <a href="#!" class="secondary-content">
+                        <i class="material-icons delete-icon">delete</i>
+                    </a>
                 </div>
             </li>
+            
         </ul>
 
         <h3 class="center">Done
-            <a class="waves-effect waves-red btn-flat">
+            <a href="#!" class="waves-effect waves-red btn-flat dropdown_btn_b" onclick="hide_section_b();">
                 <i class="material-icons">arrow_drop_up</i>
             </a>
         </h3>
