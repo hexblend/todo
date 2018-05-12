@@ -48,10 +48,31 @@ body
     h3
         font-size: 1.5em
         margin-bottom: 20px
+        .todo-counter,
+        .done-counter
+            background: $grey
+            color: white
+            font-size: 0.7em
+            padding: 6px 13.5px 8px 13.5px
+            margin-right: -7px
+            margin-left: 5px
+            border-radius: 3px;
+        .done-counter
+            background: $orange
+            color: white
+            border: 0;
+            margin-left: 8px
+            padding: 6px 13.5px 8px 14px
         a
             i
                 font-size: 20px !important
-                color: darken($grey,10%)
+                color: grey
+        .dropdown_btn_a,
+        .dropdown_btn_b
+            box-shadow: none;
+            border-radius: 0;
+            padding: 0 9px
+            margin-left: 4px
     
     .divider
         margin-bottom: 15px

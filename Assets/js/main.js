@@ -89,9 +89,9 @@ function delete_day(){
 
     // Set counter to 0
     list_counter = 0;
-    list_counter_conatiner.innerHTML = ' (' + list_counter + ')';
+    list_counter_conatiner.innerHTML = list_counter;
     done_list_counter = 0;
-    done_list_counter_container.innerHTML = ' (' + done_list_counter + ')'; 
+    done_list_counter_container.innerHTML = done_list_counter; 
 }
 function delete_item(){
     let parent = this.parentNode.parentNode.parentNode.parentNode.parentNode;
@@ -123,10 +123,10 @@ function delete_item(){
     // Check What Delete Button Was clicked and then set the counter
     if (parent.classList.contains('done-collection')){
         done_list_counter -= 1;
-        done_list_counter_container.innerHTML = ' (' + done_list_counter + ')'; 
+        done_list_counter_container.innerHTML = done_list_counter; 
     } else if (parent.classList.contains('todo-collection')){
         list_counter -= 1;
-        list_counter_conatiner.innerHTML = ' (' + list_counter + ')';
+        list_counter_conatiner.innerHTML = list_counter;
     }
 }
 function uncheck_elem() {
@@ -158,9 +158,9 @@ function uncheck_elem() {
 
     // Counter
     done_list_counter -= 1;
-    done_list_counter_container.innerHTML = ' (' + done_list_counter + ')';
+    done_list_counter_container.innerHTML = done_list_counter;
     list_counter += 1;
-    list_counter_conatiner.innerHTML = ' (' + list_counter + ')';
+    list_counter_conatiner.innerHTML = list_counter;
 }
 
 function todo_item(){
@@ -191,9 +191,9 @@ function todo_item(){
 
     // Counter
     done_list_counter += 1;
-    done_list_counter_container.innerHTML = ' (' + done_list_counter + ')'; 
+    done_list_counter_container.innerHTML = done_list_counter ; 
     list_counter -= 1;
-    list_counter_conatiner.innerHTML = ' (' + list_counter + ')';
+    list_counter_conatiner.innerHTML = list_counter;
 }
 function add_input_activity(){
     // Prevent Submision
@@ -278,6 +278,6 @@ function add_input_activity(){
 
         // Counter
         list_counter += 1;
-        list_counter_conatiner.innerHTML = ' (' + list_counter + ')';   
+        list_counter_conatiner.innerHTML = list_counter;   
     }   
 }
