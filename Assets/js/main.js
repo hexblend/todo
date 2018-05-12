@@ -58,15 +58,67 @@ function hide_section_b(){
 let list = document.querySelector('.todo-collection');
 let done_list = document.querySelector('.done-collection');
 
+let list_counter = 0;
+let done_list_counter = 0;
+
+let list_counter_conatiner = document.querySelector('.todo-counter');
+let done_list_counter_container = document.querySelector('.done-counter');
+
+if (list.children.length == 0){
+    list.style.display = 'none';
+    document.querySelector('.todo_list_title').style.display = 'none';
+    document.querySelector('.end-btn').style.display = 'none';
+}
+
+if (done_list.children.length == 0){
+    done_list.style.display = 'none';
+    document.querySelector('.done_list_title').style.display = 'none';
+}
+
+
 function delete_day(){
     list.innerHTML = '';
     done_list.innerHTML = '';
+
+    // Hide everything
+    done_list.style.display = 'none';
+    document.querySelector('.done_list_title').style.display = 'none';
+    list.style.display = 'none';
+    document.querySelector('.todo_list_title').style.display = 'none';
+    document.querySelector('.end-btn').style.display = 'none';
+
+    // Set counter to 0
+    list_counter = 0;
+    list_counter_conatiner.innerHTML = ' (' + list_counter + ')';
+    done_list_counter = 0;
+    done_list_counter_container.innerHTML = ' (' + done_list_counter + ')'; 
 }
 
 function delete_item(){
     let parent = this.parentNode.parentNode.parentNode.parentNode.parentNode;
     let item = this.parentNode.parentNode.parentNode.parentNode;
     parent.removeChild(item);
+    
+    // Delete Collections if Empty
+    if (list.children.length == 0) {
+        list.style.display = 'none';
+        document.querySelector('.todo_list_title').style.display = 'none';
+        document.querySelector('.end-btn').style.display = 'none';
+    }
+
+    if (done_list.children.length == 0) {
+        done_list.style.display = 'none';
+        document.querySelector('.done_list_title').style.display = 'none';
+    }
+
+    // Check What Delete Button Was clicked and then set the counter
+    if (parent.classList.contains('done-collection')){
+        done_list_counter -= 1;
+        done_list_counter_container.innerHTML = ' (' + done_list_counter + ')'; 
+    } else if (parent.classList.contains('todo-collection')){
+        list_counter -= 1;
+        list_counter_conatiner.innerHTML = ' (' + list_counter + ')';   
+    }
 }
 function todo_item(){
     // Remove from Activities
@@ -79,20 +131,16 @@ function todo_item(){
     check_box[0].classList.remove('unchecked-box');
     check_box[0].classList.add('checked-box')
     check_box[0].innerHTML = 'check_box';
-    // need to recreate do/undo button
-}
+    // Display done section
+    done_list.style.display = 'block';
+    document.querySelector('.done_list_title').style.display = 'block';
+    document.querySelector('.end-btn').style.display = 'inline-block';
 
-function undo_item(){
-    // Remove from Done
-    let parent = this.parentNode.parentNode.parentNode.parentNode.parentNode;
-    let item = this.parentNode.parentNode.parentNode.parentNode;
-    parent.removeChild(item);
-    // Add to Activities
-    list.insertBefore(item, list.childNodes[0]);
-    var uncheck = this.children;
-    uncheck[0].classList.remove('checked-box');
-    uncheck[0].classList.add('unchecked-box');
-    uncheck[0].innerHTML = 'check_box_outline_blank';
+    // Counter
+    done_list_counter += 1;
+    done_list_counter_container.innerHTML = ' (' + done_list_counter + ')'; 
+    list_counter -= 1;
+    list_counter_conatiner.innerHTML = ' (' + list_counter + ')';     
 }
 
 function add_input_activity(){
@@ -106,6 +154,10 @@ function add_input_activity(){
     } else {
         // Inserted Value
         let input_value = main_input.value;
+
+        // Display Todo Section
+        list.style.display = 'block';
+        document.querySelector('.todo_list_title').style.display = 'block';
 
         // Creating HTML Tags & Classes
         let item = document.createElement('li');
@@ -138,8 +190,6 @@ function add_input_activity(){
         // Event on todo button
         todo_btn.addEventListener('click', todo_item);
 
-        // Event on undo button
-
         // Appending Childs
         delete_btn.appendChild(delete_icon);
         todo_btn.appendChild(unchecked_icon);
@@ -156,5 +206,9 @@ function add_input_activity(){
 
         // Clear input
         main_input.value = '';
-    }
+
+        // Counter
+        list_counter += 1;
+        list_counter_conatiner.innerHTML = ' (' + list_counter + ')';   
+    }   
 }
