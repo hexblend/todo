@@ -38,9 +38,6 @@
             </a>
         </h3>
 
-        <!-- <div class="divider"></div> -->
-
-        
 
         <ul class="collection todo-collection">
             <li class="collection-item">
@@ -49,7 +46,7 @@
                         <i class="material-icons unchecked-box">check_box_outline_blank</i>
                     </a>
                     <a href="#!" class="secondary-content">
-                        <i class="material-icons delete-icon">delete</i>
+                        <i class="material-icons delete-icon" onclick="delete_item();">delete</i>
                     </a>
                 </div>
             </li>
@@ -60,7 +57,29 @@
                         <i class="material-icons unchecked-box">check_box_outline_blank</i>
                     </a>
                     <a href="#!" class="secondary-content">
-                        <i class="material-icons delete-icon">delete</i>
+                        <i class="material-icons delete-icon" onclick="delete_item();">delete</i>
+                    </a>
+                </div>
+            </li>
+
+            <li class="collection-item">
+                <div>First Activity
+                    <a href="#!" class="secondary-content">
+                        <i class="material-icons unchecked-box">check_box_outline_blank</i>
+                    </a>
+                    <a href="#!" class="secondary-content">
+                        <i class="material-icons delete-icon" onclick="delete_item();">delete</i>
+                    </a>
+                </div>
+            </li>
+
+            <li class="collection-item selected">
+                <div>Selected
+                    <a href="#!" class="secondary-content">
+                        <i class="material-icons unchecked-box">check_box_outline_blank</i>
+                    </a>
+                    <a href="#!" class="secondary-content">
+                        <i class="material-icons delete-icon" onclick="delete_item();">delete</i>
                     </a>
                 </div>
             </li>
@@ -72,8 +91,6 @@
                 <i class="material-icons">arrow_drop_up</i>
             </a>
         </h3>
-
-        <!-- <div class="divider"></div> -->
 
         <ul class="collection done-collection">
             <li class="collection-item">

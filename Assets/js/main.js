@@ -25,6 +25,17 @@ function hide_section_b(){
         list_b_show = true;
     }
 }
+
+function delete_item(){
+    var list = document.querySelectorAll('.todo-collection li');
+    for (var i = 0; i<list.length; i++) {
+        if (list[i].classList.contains('selected')){
+            console.log(list[i]);
+            list[i].parentNode.removeChild(list[i]);
+        }
+    }
+}
+
 function add_input_activity(){
     // Prevent Submision
     event.preventDefault();
@@ -40,7 +51,7 @@ function add_input_activity(){
         li.setAttribute('class', 'collection-item');
         li.innerHTML = '<div>'+ input_value +
         "<a href='#!' class='secondary-content'><i class='material-icons unchecked-box'>check_box_outline_blank</i></a>" +
-        "<a href='#!' class='secondary-content'><i class='material-icons delete-icon'>delete</i></a></div>";
+        "<a href='#!' class='secondary-content'><i class='material-icons delete-icon' onclick='delete_item(this);'>delete</i></a></div>";
         document.querySelector('.todo-collection').appendChild(li);
         main_input.value = '';
     }
