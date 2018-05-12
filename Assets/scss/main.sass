@@ -4,7 +4,7 @@ body
     background: $white
 
     .header
-        background: url('../img/header3.jpg') no-repeat center center
+        background: url('../img/header.jpg') no-repeat center center
         background-size: cover
         height: 250px
         border-bottom-left-radius: 7px
@@ -53,13 +53,35 @@ body
 
 
     .todo-collection
-        .unchecked-box
+        border: 0
+        li
+            border-left: 1px solid lighten($grey, 25%)
+            border-right: 1px solid lighten($grey, 25%)
+            &:first-child
+                border-top: 1px solid lighten($grey, 25%)
+            &:last-child
+                border-bottom: 1px solid lighten($grey, 25%) !important
+        .row
+            margin: 0
+            padding: 0
+            margin-bottom: -6px
+            border: 0
+        .secondary-content:hover
+            cursor: pointer
+        .item-text
+            margin: 0
+            padding-top: 1px
+        .unchecked-box,
+        .checked-box
             color: $grey
             margin-left: 10px
         .delete-icon
             color: $grey;
     
     .done-collection
+        .todo_btn
+            pointer-events: none;
+            cursor: default;
         .checked-box
             color: $orange
     .end-btn-container
