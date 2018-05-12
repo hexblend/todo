@@ -93,14 +93,13 @@ function delete_day(){
     done_list_counter = 0;
     done_list_counter_container.innerHTML = ' (' + done_list_counter + ')'; 
 }
-
 function delete_item(){
     let parent = this.parentNode.parentNode.parentNode.parentNode.parentNode;
     let item = this.parentNode.parentNode.parentNode.parentNode;
     parent.removeChild(item);
     
     // Delete Collections if Empty
-    if (list.children.length == 0) {
+    if ((list.children.length == 0) && (done_list.children.length == 0)) {
         list.style.display = 'none';
         document.querySelector('.todo_list_title').style.display = 'none';
         document.querySelector('.end-btn').style.display = 'none';
@@ -125,32 +124,79 @@ function delete_item(){
         list_counter_conatiner.innerHTML = ' (' + list_counter + ')';
     }
 }
-function todo_item(){
-    // Remove from Activities
+function uncheck_elem() {
+    // Remove from Done Activities
     let parent = this.parentNode.parentNode.parentNode.parentNode.parentNode;
     let item = this.parentNode.parentNode.parentNode.parentNode;
     parent.removeChild(item);
-    // Add to Done
-    done_list.insertBefore(item, done_list.childNodes[0]);
-    var check_box = this.children;
-    check_box[0].classList.remove('unchecked-box');
-    check_box[0].classList.add('checked-box')
-    check_box[0].innerHTML = 'check_box';
-    // Display done section
+
+    // Hide Done Collection If Empty
+    if (parent.children.length == 0){
+        document.querySelector('.done_list_title').style.display = 'none';
+        parent.style.display = 'none';
+    }
+
+    // Check If dropdown button is hidden to make it appear
+    if (document.querySelector('.todo-collection').children.length == 0) {
+        //document.querySelector('.todo_list_title').innerHTML = 'Activities To Do' + '<span class="todo-counter">' + ' (' + list_counter + ')' + '</span>' + '<a href="#!" class="waves-effect waves-red btn-flat dropdown_btn_a" onclick="hide_section_a();"><i class="material-icons">arrow_drop_up</i></a>';
+        document.querySelector('.dropdown_btn_a').style.display = 'inline-block';
+    }
+
+    // Add to 'To Do' Activities
+    list.insertBefore(item, list.childNodes[0]);
+
+    // Remove Checked Link
+    document.querySelector('.done_btn').style.display = 'none';
+
+    // Add Unchecked Link
+    document.querySelector('.todo_btn').style.display = 'block';
+
+    // Counter
+    done_list_counter -= 1;
+    done_list_counter_container.innerHTML = ' (' + done_list_counter + ')';
+    list_counter += 1;
+    list_counter_conatiner.innerHTML = ' (' + list_counter + ')';
+}
+
+function todo_item(){
+    // Remove from To Do Activities
+    let parent = this.parentNode.parentNode.parentNode.parentNode.parentNode;
+    let item = this.parentNode.parentNode.parentNode.parentNode;
+    parent.removeChild(item);
+
+    // Hide Dropdown If Empty
+    if (parent.children.length == 0) {
+        document.querySelector('.dropdown_btn_a').style.display = 'none';
+        //document.querySelector('.todo_list_title').innerHTML = "Good job! You've done all planned activities."
+    }
+
+    // Display Done section
     done_list.style.display = 'block';
     document.querySelector('.done_list_title').style.display = 'block';
     document.querySelector('.end-btn').style.display = 'inline-block';
+
+    // Add to Done
+    done_list.insertBefore(item, done_list.childNodes[0]);
+
+    // Remove Unchecked Link
+    this.style.display = 'none';
+
+    // Add Checked Link
+    document.querySelector('.done-collection .done_btn').style.display = 'block';
 
     // Counter
     done_list_counter += 1;
     done_list_counter_container.innerHTML = ' (' + done_list_counter + ')'; 
     list_counter -= 1;
-    list_counter_conatiner.innerHTML = ' (' + list_counter + ')';     
+    list_counter_conatiner.innerHTML = ' (' + list_counter + ')';
 }
-
 function add_input_activity(){
     // Prevent Submision
     event.preventDefault();
+    
+    // Remove Label Active Class
+    document.getElementById('label').classList.remove('active');
+
     // Main Input Var
     let main_input = document.querySelector('#add_activity');
     // Validation
@@ -188,6 +234,11 @@ function add_input_activity(){
         let delete_icon = document.createElement('i');
         delete_icon.setAttribute('class', 'material-icons delete-icon');
         delete_icon.innerHTML = 'delete';
+        let done_btn = document.createElement('a');
+        done_btn.setAttribute('class', 'secondary-content done_btn');
+        let checked_icon = document.createElement('i');
+        checked_icon.setAttribute('class', 'material-icons checked-box');
+        checked_icon.innerHTML = 'check_box';
 
         // Event on Delete button
         delete_btn.addEventListener('click', delete_item);
@@ -195,16 +246,24 @@ function add_input_activity(){
         // Event on todo button
         todo_btn.addEventListener('click', todo_item);
 
+        // Event on done button
+        done_btn.addEventListener('click', uncheck_elem);
+
         // Appending Childs
         delete_btn.appendChild(delete_icon);
         todo_btn.appendChild(unchecked_icon);
-        buttons_div.appendChild(todo_btn)
+        done_btn.appendChild(checked_icon);
+        buttons_div.appendChild(todo_btn);
+        buttons_div.appendChild(done_btn);
         buttons_div.appendChild(delete_btn);
         s_four_div.appendChild(buttons_div);
         s_eight_div.appendChild(item_text);
         row_div.appendChild(s_eight_div)
         row_div.appendChild(s_four_div);
         item.appendChild(row_div);
+
+        // Hide checked btn
+        done_btn.style.display = 'none';
 
         // Insert Item
         list.insertBefore(item, list.childNodes[0]);

@@ -30,7 +30,10 @@ body
                 color: $black
             .input-field input[type=text]:focus + label
                 color: $orange
-            .input-field input[type=text]:focus 
+            .input-field input[type=text]:focus
+                border-bottom: 1px solid $orange
+                box-shadow: 0 1px 0 0 $orange
+            .input-field input[type=text].valid
                 border-bottom: 1px solid $orange
                 box-shadow: 0 1px 0 0 $orange
             @media(max-width:600px)
@@ -77,11 +80,10 @@ body
             margin-left: 10px
         .delete-icon
             color: $grey;
+        .checked-box
+                color: $orange
     
     .done-collection
-        .todo_btn
-            pointer-events: none;
-            cursor: default;
         .checked-box
             color: $orange
     .end-btn-container
