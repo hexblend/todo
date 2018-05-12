@@ -105,12 +105,17 @@ function delete_item(){
         document.querySelector('.end-btn').style.display = 'none';
     }
 
+    // Delete Dropdown If List Empy
+    if (list.children.length == 0){
+        document.querySelector('.dropdown_btn_a').style.display = 'none';
+    }
+
     if (done_list.children.length == 0) {
         done_list.style.display = 'none';
         document.querySelector('.done_list_title').style.display = 'none';
     }
 
-    // keep delete all btn if todo list is empty and done list is not
+    // delete 'all btn' if todo list is empty and done list is not
     if ((list.children.length == 0) && (done_list.children.length > 0)) {
         document.querySelector('.end-btn').style.display = 'inline-block';
     }
@@ -193,9 +198,6 @@ function todo_item(){
 function add_input_activity(){
     // Prevent Submision
     event.preventDefault();
-    
-    // Remove Label Active Class
-    document.getElementById('label').classList.remove('active');
 
     // Main Input Var
     let main_input = document.querySelector('#add_activity');
