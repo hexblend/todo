@@ -111,6 +111,7 @@ function delete_item(){
         document.querySelector('.done_list_title').style.display = 'none';
     }
 
+    // keep delete all btn if todo list is empty and done list is not
     if ((list.children.length == 0) && (done_list.children.length > 0)) {
         document.querySelector('.end-btn').style.display = 'inline-block';
     }
