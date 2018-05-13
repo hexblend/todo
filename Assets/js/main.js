@@ -30,7 +30,7 @@ document.querySelector('.date_holder').innerHTML = today;
 let list_a_show = true;
 let list_b_show = true;
 function hide_section_a() {
-    if (list_a_show == true){
+    if (list_a_show == true) {
         document.querySelector('.dropdown_btn_a i').style.transition = '.3s all ease-in-out';
         document.querySelector('.dropdown_btn_a i').innerHTML = "arrow_drop_down";
         document.querySelector('.todo-collection').style.display = 'none';
@@ -41,7 +41,7 @@ function hide_section_a() {
         list_a_show = true;
     }
 }
-function hide_section_b(){
+function hide_section_b() {
     if (list_b_show == true) {
         document.querySelector('.dropdown_btn_b i').style.transition = '.3s all ease-in-out';
         document.querySelector('.dropdown_btn_b i').innerHTML = "arrow_drop_down";
@@ -64,19 +64,19 @@ let done_list_counter = 0;
 let list_counter_conatiner = document.querySelector('.todo-counter');
 let done_list_counter_container = document.querySelector('.done-counter');
 
-if (list.children.length == 0){
+if (list.children.length == 0) {
     list.style.display = 'none';
     document.querySelector('.todo_list_title').style.display = 'none';
     document.querySelector('.end-btn').style.display = 'none';
 }
 
-if (done_list.children.length == 0){
+if (done_list.children.length == 0) {
     done_list.style.display = 'none';
     document.querySelector('.done_list_title').style.display = 'none';
 }
 
 
-function delete_day(){
+function delete_day() {
     list.innerHTML = '';
     done_list.innerHTML = '';
 
@@ -91,13 +91,13 @@ function delete_day(){
     list_counter = 0;
     list_counter_conatiner.innerHTML = list_counter;
     done_list_counter = 0;
-    done_list_counter_container.innerHTML = done_list_counter; 
+    done_list_counter_container.innerHTML = done_list_counter;
 }
-function delete_item(){
+function delete_item() {
     let parent = this.parentNode.parentNode.parentNode.parentNode.parentNode;
     let item = this.parentNode.parentNode.parentNode.parentNode;
     parent.removeChild(item);
-    
+
     // Delete Collections if Empty
     if ((list.children.length == 0) && (done_list.children.length == 0)) {
         list.style.display = 'none';
@@ -106,7 +106,7 @@ function delete_item(){
     }
 
     // Delete Dropdown If List Empy
-    if (list.children.length == 0){
+    if (list.children.length == 0) {
         document.querySelector('.dropdown_btn_a').style.display = 'none';
     }
 
@@ -121,10 +121,10 @@ function delete_item(){
     }
 
     // Check What Delete Button Was clicked and then set the counter
-    if (parent.classList.contains('done-collection')){
+    if (parent.classList.contains('done-collection')) {
         done_list_counter -= 1;
-        done_list_counter_container.innerHTML = done_list_counter; 
-    } else if (parent.classList.contains('todo-collection')){
+        done_list_counter_container.innerHTML = done_list_counter;
+    } else if (parent.classList.contains('todo-collection')) {
         list_counter -= 1;
         list_counter_conatiner.innerHTML = list_counter;
     }
@@ -136,7 +136,7 @@ function uncheck_elem() {
     parent.removeChild(item);
 
     // Hide Done Collection If Empty
-    if (parent.children.length == 0){
+    if (parent.children.length == 0) {
         document.querySelector('.done_list_title').style.display = 'none';
         parent.style.display = 'none';
     }
@@ -163,7 +163,7 @@ function uncheck_elem() {
     list_counter_conatiner.innerHTML = list_counter;
 }
 
-function todo_item(){
+function todo_item() {
     // Remove from To Do Activities
     let parent = this.parentNode.parentNode.parentNode.parentNode.parentNode;
     let item = this.parentNode.parentNode.parentNode.parentNode;
@@ -191,18 +191,18 @@ function todo_item(){
 
     // Counter
     done_list_counter += 1;
-    done_list_counter_container.innerHTML = done_list_counter ; 
+    done_list_counter_container.innerHTML = done_list_counter;
     list_counter -= 1;
     list_counter_conatiner.innerHTML = list_counter;
 }
-function add_input_activity(){
+function add_input_activity() {
     // Prevent Submision
     event.preventDefault();
 
     // Main Input Var
     let main_input = document.querySelector('#add_activity');
     // Validation
-    if (main_input.value == ""){
+    if (main_input.value == "") {
         alert("You can't insert an empty activity!");
     } else {
         // Inserted Value
@@ -276,8 +276,13 @@ function add_input_activity(){
         // Clear input
         main_input.value = '';
 
+        // Check if the dropdown is hidden
+        if (document.querySelector('.dropdown_btn_a').style.display = 'none'){
+            document.querySelector('.dropdown_btn_a').style.display = 'inline-block';
+        }
+
         // Counter
         list_counter += 1;
-        list_counter_conatiner.innerHTML = list_counter;   
-    }   
+        list_counter_conatiner.innerHTML = list_counter;
+    }
 }
