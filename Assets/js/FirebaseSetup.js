@@ -30,7 +30,9 @@ var GlobalData = {
     AllLists: {},
     CurrentList: {}
 };
-GlobalData.CurrentList[CurrentDate] = {};
+GlobalData.CurrentList[CurrentDate] = {
+    Count: 0
+};
 // Initialize Firebase
 firebase.initializeApp(GlobalData.FirebaseConfig);
 var Database = firebase.database();
@@ -126,15 +128,15 @@ firebase.auth().onAuthStateChanged(function(user) {
 });
 
 function AddToList(v) {
-    var arr = {
-        Name: v,
+    GlobalData.CurrentList[CurrentDate][v] = {
         Checked: false
     };
-    GlobalData.CurrentList[CurrentDate].push(arr);
 }
 
 function CheckListElem() {}
 
 function UnCheckListElem() {}
+
+function DeleteListElem() {}
 
 function SetFireBaseList(List) {}
