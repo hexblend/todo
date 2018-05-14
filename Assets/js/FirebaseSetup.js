@@ -45,7 +45,7 @@ firebase
                     firebase
                         .database()
                         .ref("/Users/" + FB_DATA["UID"])
-                        .set(UserData);
+                        .set(GlobalData.UserData);
                 } else {
                     GlobalData.UserData = snapshot.val();
                 }
