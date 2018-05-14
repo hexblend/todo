@@ -30,7 +30,7 @@ var GlobalData = {
     AllLists: {},
     CurrentList: {}
 };
-GlobalData.CurrentList.CurrentDate = {};
+GlobalData.CurrentList[CurrentDate] = {};
 // Initialize Firebase
 firebase.initializeApp(GlobalData.FirebaseConfig);
 var Database = firebase.database();
@@ -130,7 +130,7 @@ function AddToList(v) {
         Name: v,
         Checked: false
     };
-    GlobalData.CurrentList.CurrentDate.push(arr);
+    GlobalData.CurrentList[CurrentDate].push(arr);
 }
 
 function CheckListElem() {}
