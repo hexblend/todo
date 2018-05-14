@@ -12,7 +12,9 @@ var GlobalData = {
         storageBucket: "",
         messagingSenderId: "180513059705"
     },
-    UserData: null
+    UserData: null,
+    AllLists: {},
+    CurrentList: {}
 };
 // Initialize Firebase
 firebase.initializeApp(GlobalData.FirebaseConfig);
@@ -81,7 +83,14 @@ firebase.auth().onAuthStateChanged(function(user) {
                         });
                 });
             }
-            // Do logged in firebase stuff
+            // Add code here to do whilst logged in only
+            firebase
+                .database()
+                .ref("/UserLists/" + FB_DATA["UID"])
+                .on("value", function(snapshot) {
+                    console.log(snapshot.val());
+                    GlobalData.UserData.AllLists = snapshot.val();
+                });
         }
     } else {
         console.log("User Log In Required.");
