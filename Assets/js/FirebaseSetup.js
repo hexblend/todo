@@ -3,6 +3,20 @@
 // #LogOutButton
 
 console.log("Starting Firebase...");
+function GetDate() {
+    let t = new Date();
+    var dd = t.getDate();
+    var mm = t.getMonth() + 1; //January is 0!
+    var yyyy = t.getFullYear();
+    if (dd < 10) {
+        dd = "0" + dd;
+    }
+    if (mm < 10) {
+        mm = "0" + mm;
+    }
+    return dd + "/" + mm + "/" + yyyy;
+}
+var CurrentDate = getDate();
 var GlobalData = {
     FirebaseConfig: {
         apiKey: "AIzaSyA8a6WnwAyOeq61gmtKwS6Oa0TNdY6M5Bo",
@@ -16,6 +30,7 @@ var GlobalData = {
     AllLists: {},
     CurrentList: {}
 };
+GlobalData.CurrentList.CurrentDate = {};
 // Initialize Firebase
 firebase.initializeApp(GlobalData.FirebaseConfig);
 var Database = firebase.database();
@@ -109,3 +124,17 @@ firebase.auth().onAuthStateChanged(function(user) {
         }
     }
 });
+
+function AddToList(v) {
+    var arr = {
+        Name: v,
+        Checked: false
+    };
+    GlobalData.CurrentList.CurrentDate.push(arr);
+}
+
+function CheckListElem() {}
+
+function UnCheckListElem() {}
+
+function SetFireBaseList(List) {}

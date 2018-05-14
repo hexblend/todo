@@ -205,13 +205,14 @@ function add_input_activity() {
     event.preventDefault();
 
     // Main Input Var
-    let input_value = document.querySelector("#add_activity").value;
+    let main_input = document.querySelector("#add_activity");
     // Validation
-    if (input_value == "") {
+    if (main_input.value == "") {
         alert("You can't insert an empty activity!");
     } else {
         // Inserted Value
-        // let input_value = main_input.value;
+        let input_value = main_input.value;
+        AddToList(input_value);
 
         // Display Todo Section
         list.style.display = "block";
@@ -279,7 +280,7 @@ function add_input_activity() {
         document.querySelector(".end-btn").style.display = "inline-block";
 
         // Clear input
-        input_value = "";
+        main_input.value = "";
 
         // Check if the dropdown is hidden
         if (
