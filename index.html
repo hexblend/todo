@@ -30,15 +30,12 @@
                 <button class="btn-floating waves-effect waves-light red" type="submit" name="action" onclick="add_input_activity();">+</button>
             </div>
         </form>
-
-
-        <h3 class="center todo_list_title">Activities To Do <span class="todo-counter">0</span>
+        <h3 class="center todo_list_title">Activities To Do
+            <span class="todo-counter">0</span>
             <a href="#!" class="waves-effect waves-light btn-flat dropdown_btn_a" onclick="hide_section_a();">
                 <i class="material-icons">arrow_drop_up</i>
             </a>
         </h3>
-
-
         <ul class="collection todo-collection">
             <!-- <li class="collection-item">
                 <div class="row">
@@ -58,13 +55,12 @@
                 </div>
             </li> -->
         </ul>
-
-        <h3 class="center done_list_title">Activities Done <span class="done-counter">0</span>
+        <h3 class="center done_list_title">Activities Done
+            <span class="done-counter">0</span>
             <a href="#!" class="waves-effect waves-light btn-flat dropdown_btn_b" onclick="hide_section_b();">
                 <i class="material-icons">arrow_drop_up</i>
             </a>
         </h3>
-
         <ul class="collection todo-collection done-collection">
             <!-- <li class="collection-item">
                 <div class="row">
@@ -84,18 +80,17 @@
                 </div>
             </li> -->
         </ul>
-
         <div class="center end-btn-container">
             <a class="waves-effect waves-light btn grey end-btn" onclick="delete_day();">End of the day [Delete all]</a>
         </div>
-
     </div>
-
     <!-- Jquery -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <!-- Material Design JS -->
     <script src="Assets/js/materialize.js"></script>
     <!-- Custom JS -->
     <script type="text/javascript" src="Assets/js/main.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.2/firebase.js"></script>
+    <script src="Assets/js/FirebaseSetup.min.js"></script>
 </body>
 </html>
