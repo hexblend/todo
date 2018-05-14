@@ -16,7 +16,7 @@ function GetDate() {
     }
     return dd + "/" + mm + "/" + yyyy;
 }
-var CurrentDate = getDate();
+var CurrentDate = GetDate();
 var GlobalData = {
     FirebaseConfig: {
         apiKey: "AIzaSyA8a6WnwAyOeq61gmtKwS6Oa0TNdY6M5Bo",
