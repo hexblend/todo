@@ -19,6 +19,47 @@ firebase.initializeApp(GlobalData.FirebaseConfig);
 var Database = firebase.database();
 var FB_DATA = {};
 firebase.auth().useDeviceLanguage();
+firebase
+    .auth()
+    .getRedirectResult()
+    .then(function(result) {
+        if (result.credential) {
+            FB_DATA["Token"] = result.credential.accessToken;
+        }
+        FB_DATA["User"] = result.user;
+        FB_DATA["CurrentUser"] = firebase.auth().currentUser;
+        FB_DATA["UID"] = FB_DATA["CurrentUser"].uid;
+        firebase
+            .database()
+            .ref("/Users/" + FB_DATA["UID"])
+            .once("value")
+            .then(function(snapshot) {
+                if (!snapshot.val()) {
+                    GlobalData.UserData = {
+                        UID: FB_DATA["UID"],
+                        Email: FB_DATA["CurrentUser"].email,
+                        DisplayName: FB_DATA["CurrentUser"].displayName,
+                        PhoneNumber: FB_DATA["CurrentUser"].phoneNumber,
+                        ProfilePicture: FB_DATA["CurrentUser"].photoURL
+                    };
+                    firebase
+                        .database()
+                        .ref("/Users/" + FB_DATA["UID"])
+                        .set(UserData);
+                } else {
+                    GlobalData.UserData = snapshot.val();
+                }
+            });
+    })
+    .catch(function(e) {
+        FB_DATA["Error"] = {
+            Code: e.code,
+            MSG: e.message,
+            Email: e.email,
+            Credential: e.credential
+        };
+        console.error(FB_DATA);
+    });
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
         console.log("User Already Logged In.");
@@ -53,55 +94,7 @@ firebase.auth().onAuthStateChanged(function(user) {
                     var provider = new firebase.auth.GoogleAuthProvider();
                     provider.addScope("profile");
                     provider.addScope("email");
-                    firebase
-                        .auth()
-                        .signInWithPopup(provider)
-                        .then(function(result) {
-                            if (result.credential) {
-                                FB_DATA["Token"] =
-                                    result.credential.accessToken;
-                            }
-                            FB_DATA["User"] = result.user;
-                            FB_DATA[
-                                "CurrentUser"
-                            ] = firebase.auth().currentUser;
-                            FB_DATA["UID"] = FB_DATA["CurrentUser"].uid;
-                            firebase
-                                .database()
-                                .ref("/Users/" + FB_DATA["UID"])
-                                .once("value")
-                                .then(function(snapshot) {
-                                    if (!snapshot.val()) {
-                                        GlobalData.UserData = {
-                                            UID: FB_DATA["UID"],
-                                            Email: FB_DATA["CurrentUser"].email,
-                                            DisplayName:
-                                                FB_DATA["CurrentUser"]
-                                                    .displayName,
-                                            PhoneNumber:
-                                                FB_DATA["CurrentUser"]
-                                                    .phoneNumber,
-                                            ProfilePicture:
-                                                FB_DATA["CurrentUser"].photoURL
-                                        };
-                                        firebase
-                                            .database()
-                                            .ref("/Users/" + FB_DATA["UID"])
-                                            .set(UserData);
-                                    } else {
-                                        GlobalData.UserData = snapshot.val();
-                                    }
-                                });
-                        })
-                        .catch(function(e) {
-                            FB_DATA["Error"] = {
-                                Code: e.code,
-                                MSG: e.message,
-                                Email: e.email,
-                                Credential: e.credential
-                            };
-                            console.error(FB_DATA);
-                        });
+                    firebase.auth().signInWithRedirect(provider);
                 });
             }
         }
