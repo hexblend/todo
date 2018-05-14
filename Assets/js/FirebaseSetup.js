@@ -100,6 +100,7 @@ firebase.auth().onAuthStateChanged(function(user) {
                                 Email: e.email,
                                 Credential: e.credential
                             };
+                            console.error(FB_DATA);
                         });
                 });
             }
