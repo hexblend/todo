@@ -80,6 +80,7 @@ if (done_list.children.length == 0) {
 }
 
 function delete_day() {
+    DeleteAllElem();
     list.innerHTML = "";
     done_list.innerHTML = "";
     GlobalData.CurrentList[CurrentDate] = {};
