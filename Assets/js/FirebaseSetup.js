@@ -81,7 +81,6 @@ firebase
                     UserName.innerText = GlobalData.UserData.DisplayName; //.split(" ")[0];
                 }
             });
-        location.pathname = "/todo/app.html"; // /todo/app.html
     })
     .catch(function(e) {
         FB_DATA["Error"] = {
