@@ -27,7 +27,7 @@ var GlobalData = {
     FirebaseConfig: {
         apiKey: "AIzaSyCMpG0y-DNwT057GwVXXVM3Sm3C_7LuXHg",
         authDomain: "to-do-app-3ceab.firebaseapp.com",
-        databaseURL: "https://to-do-app-3ceab.firebaseio.com",
+        databaseURL: "https://todo-app-3ceab.firebaseio.com",
         projectId: "to-do-app-3ceab",
         storageBucket: "to-do-app-3ceab.appspot.com",
         messagingSenderId: "1017031331547"
@@ -94,8 +94,8 @@ firebase
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
         console.log("User Already Logged In.");
-        if (location.pathname == "/to-do/index.html" || location.pathname == "/to-do/index" || location.pathname == "/to-do" || location.pathname == "/to-do/") {
-            location.pathname = "/to-do/app.html"; // /to-do/app.html
+        if (location.pathname == "/todo/index.html" || location.pathname == "/todo/index" || location.pathname == "/todo" || location.pathname == "/todo/") {
+            location.pathname = "/todo/app.html"; // /todo/app.html
         } else {
             var OUT = document.querySelector("#LogOutButton");
             if (OUT) {
@@ -104,7 +104,7 @@ firebase.auth().onAuthStateChanged(function(user) {
                         .auth()
                         .signOut()
                         .then(function() {
-                            location.pathname = "/to-do"; // /to-do
+                            location.pathname = "/todo"; // /todo
                         })
                         .catch(function(e) {
                             console.warn(e);
@@ -130,8 +130,8 @@ firebase.auth().onAuthStateChanged(function(user) {
         }
     } else {
         console.log("User Log In Required.");
-        if (location.pathname == "/to-do/app.html" || location.pathname == "/to-do/app" || location.pathname == "/to-do/app.html") {
-            location.pathname = "/to-do"; // /to-do
+        if (location.pathname == "/todo/app.html" || location.pathname == "/todo/app" || location.pathname == "/todo/app.html") {
+            location.pathname = "/todo"; // /todo
         } else {
             var LB = document.querySelector("#LoginButton");
             if (LB) {
