@@ -78,7 +78,7 @@ firebase
                     UserImage.src = GlobalData.UserData.ProfilePicture;
                 }
                 if (UserName) {
-                    UserName.innerText = GlobalData.UserData.DisplayName.split(" ")[0];
+                    UserName.innerText = GlobalData.UserData.DisplayName; //.split(" ")[0];
                 }
             });
     })
