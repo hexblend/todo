@@ -121,7 +121,9 @@ firebase.auth().onAuthStateChanged(function(user) {
                         GlobalData.AllLists = snapshot.val();
                         if (GlobalData.AllLists[CurrentDate]) {
                             GlobalData.CurrentList = GlobalData.AllLists[CurrentDate];
-                            AddToPage();
+                            if (location.pathname.split("/").reverse()[0] == "app.html") {
+                                AddToPage();
+                            }
                         }
                     }
                 });
@@ -144,42 +146,44 @@ firebase.auth().onAuthStateChanged(function(user) {
     }
 });
 
-// Activities / Done Lists
-var list = document.querySelector(".todo-collection");
-var done_list = document.querySelector(".done-collection");
+if (location.pathname.split("/").reverse()[0] == "app.html") {
+    // Activities / Done Lists
+    var list = document.querySelector(".todo-collection");
+    var done_list = document.querySelector(".done-collection");
 
-var list_counter = 0;
-var done_list_counter = 0;
+    var list_counter = 0;
+    var done_list_counter = 0;
 
-var list_counter_conatiner = document.querySelector(".todo-counter");
-var done_list_counter_container = document.querySelector(".done-counter");
+    var list_counter_conatiner = document.querySelector(".todo-counter");
+    var done_list_counter_container = document.querySelector(".done-counter");
 
-var main_input = document.querySelector("#add_activity");
+    var main_input = document.querySelector("#add_activity");
 
-// Hide / Show Activities Lists [Dropdowns]
-var dropdown_btn_a = document.querySelector(".dropdown_btn_a");
-if (dropdown_btn_a) {
-    if ((dropdown_btn_a.style.display = "none")) {
-        dropdown_btn_a.style.display = "inline-block";
+    // Hide / Show Activities Lists [Dropdowns]
+    var dropdown_btn_a = document.querySelector(".dropdown_btn_a");
+    if (dropdown_btn_a) {
+        if ((dropdown_btn_a.style.display = "none")) {
+            dropdown_btn_a.style.display = "inline-block";
+        }
     }
-}
 
-if (list.children.length == 0) {
-    list.style.display = "none";
-    document.querySelector(".todo_list_title").style.display = "none";
-    document.querySelector(".end-btn").style.display = "none";
-} else {
-    list.style.display = "block";
-    document.querySelector(".todo_list_title").style.display = "block";
-    document.querySelector(".end-btn").style.display = "block";
-}
+    if (list.children.length == 0) {
+        list.style.display = "none";
+        document.querySelector(".todo_list_title").style.display = "none";
+        document.querySelector(".end-btn").style.display = "none";
+    } else {
+        list.style.display = "block";
+        document.querySelector(".todo_list_title").style.display = "block";
+        document.querySelector(".end-btn").style.display = "block";
+    }
 
-if (done_list.children.length == 0) {
-    done_list.style.display = "none";
-    document.querySelector(".done_list_title").style.display = "none";
-} else {
-    done_list.style.display = "block";
-    document.querySelector(".done_list_title").style.display = "block";
+    if (done_list.children.length == 0) {
+        done_list.style.display = "none";
+        document.querySelector(".done_list_title").style.display = "none";
+    } else {
+        done_list.style.display = "block";
+        document.querySelector(".done_list_title").style.display = "block";
+    }
 }
 
 var list_a_show = true;
