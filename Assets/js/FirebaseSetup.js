@@ -72,6 +72,8 @@ firebase
                 } else {
                     GlobalData.UserData = snapshot.val();
                 }
+                document.querySelector(".header h1").innerText =
+                    "Today's Plan For You, " + GlobalData.UserData.DisplayName;
             });
     })
     .catch(function(e) {
@@ -121,8 +123,6 @@ firebase.auth().onAuthStateChanged(function(user) {
                         }
                     }
                 });
-            document.querySelector(".header h1").innerText =
-                "Today's Plan For You, " + GlobalData.UserData.DisplayName;
         }
     } else {
         console.log("User Log In Required.");
