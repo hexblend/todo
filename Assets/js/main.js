@@ -1,10 +1,10 @@
 // Date
-let today = new Date();
-let dd = today.getDate();
-let mm = today.getMonth() + 1; //January is 0!
-let yyyy = today.getFullYear();
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth() + 1; //January is 0!
+var yyyy = today.getFullYear();
 
-let weekday = new Array(7);
+var weekday = new Array(7);
 weekday[0] = "Sunday";
 weekday[1] = "Monday";
 weekday[2] = "Tuesday";
@@ -27,8 +27,8 @@ today = day + ", " + dd + "/" + mm + "/" + yyyy;
 document.querySelector(".date_holder").innerHTML = today;
 
 // // Hide / Show Activities Lists [Dropdowns]
-// let list_a_show = true;
-// let list_b_show = true;
+// var list_a_show = true;
+// var list_b_show = true;
 // function hide_section_a() {
 //     if (list_a_show == true) {
 //         document.querySelector(".dropdown_btn_a i").style.transition =
@@ -59,14 +59,14 @@ document.querySelector(".date_holder").innerHTML = today;
 // }
 
 // // Activities / Done Lists
-// let list = document.querySelector(".todo-collection");
-// let done_list = document.querySelector(".done-collection");
+// var list = document.querySelector(".todo-collection");
+// var done_list = document.querySelector(".done-collection");
 
-// let list_counter = 0;
-// let done_list_counter = 0;
+// var list_counter = 0;
+// var done_list_counter = 0;
 
-// let list_counter_conatiner = document.querySelector(".todo-counter");
-// let done_list_counter_container = document.querySelector(".done-counter");
+// var list_counter_conatiner = document.querySelector(".todo-counter");
+// var done_list_counter_container = document.querySelector(".done-counter");
 
 // if (list.children.length == 0) {
 //     list.style.display = "none";
@@ -99,8 +99,8 @@ function delete_day() {
     // done_list_counter_container.innerHTML = done_list_counter;
 }
 function delete_item() {
-    // let parent = this.parentNode.parentNode.parentNode.parentNode.parentNode;
-    let item = this.parentNode.parentNode.parentNode.parentNode;
+    // var parent = this.parentNode.parentNode.parentNode.parentNode.parentNode;
+    var item = this.parentNode.parentNode.parentNode.parentNode;
     DeleteListElem(item.querySelector(".item-text").innerText);
     // parent.removeChild(item);
 
@@ -137,8 +137,8 @@ function delete_item() {
 }
 function uncheck_elem() {
     // Remove from Done Activities
-    // let parent = this.parentNode.parentNode.parentNode.parentNode.parentNode;
-    let item = this.parentNode.parentNode.parentNode.parentNode;
+    // var parent = this.parentNode.parentNode.parentNode.parentNode.parentNode;
+    var item = this.parentNode.parentNode.parentNode.parentNode;
     UnCheckListElem(item.querySelector(".item-text").innerText);
     // parent.removeChild(item);
 
@@ -172,8 +172,8 @@ function uncheck_elem() {
 
 function todo_item() {
     // Remove from To Do Activities
-    // let parent = this.parentNode.parentNode.parentNode.parentNode.parentNode;
-    let item = this.parentNode.parentNode.parentNode.parentNode;
+    // var parent = this.parentNode.parentNode.parentNode.parentNode.parentNode;
+    var item = this.parentNode.parentNode.parentNode.parentNode;
     CheckListElem(item.querySelector(".item-text").innerText);
     // parent.removeChild(item);
 
@@ -214,7 +214,7 @@ function add_input_activity() {
         alert("You can't insert an empty activity!");
     } else {
         // // Inserted Value
-        let input_value = main_input.value;
+        var input_value = main_input.value;
         AddToList(input_value);
 
         // // Display Todo Section
@@ -222,32 +222,32 @@ function add_input_activity() {
         // document.querySelector(".todo_list_title").style.display = "block";
 
         // // Creating HTML Tags & Classes
-        // let item = document.createElement("li");
+        // var item = document.createElement("li");
         // item.setAttribute("class", "collection-item");
-        // let row_div = document.createElement("div");
+        // var row_div = document.createElement("div");
         // row_div.setAttribute("class", "row");
-        // let s_eight_div = document.createElement("div");
+        // var s_eight_div = document.createElement("div");
         // s_eight_div.setAttribute("class", "col s8");
-        // let s_four_div = document.createElement("div");
+        // var s_four_div = document.createElement("div");
         // s_four_div.setAttribute("class", "col s4");
-        // let item_text = document.createElement("p");
+        // var item_text = document.createElement("p");
         // item_text.setAttribute("class", "item-text");
         // item_text.innerHTML = input_value;
-        // let buttons_div = document.createElement("div");
+        // var buttons_div = document.createElement("div");
         // buttons_div.setAttribute("class", "buttons");
-        // let todo_btn = document.createElement("a");
+        // var todo_btn = document.createElement("a");
         // todo_btn.setAttribute("class", "secondary-content todo_btn");
-        // let unchecked_icon = document.createElement("i");
+        // var unchecked_icon = document.createElement("i");
         // unchecked_icon.setAttribute("class", "material-icons unchecked-box");
         // unchecked_icon.innerHTML = "check_box_outline_blank";
-        // let delete_btn = document.createElement("a");
+        // var delete_btn = document.createElement("a");
         // delete_btn.setAttribute("class", "secondary-content delete_btn");
-        // let delete_icon = document.createElement("i");
+        // var delete_icon = document.createElement("i");
         // delete_icon.setAttribute("class", "material-icons delete-icon");
         // delete_icon.innerHTML = "delete";
-        // let done_btn = document.createElement("a");
+        // var done_btn = document.createElement("a");
         // done_btn.setAttribute("class", "secondary-content done_btn");
-        // let checked_icon = document.createElement("i");
+        // var checked_icon = document.createElement("i");
         // checked_icon.setAttribute("class", "material-icons checked-box");
         // checked_icon.innerHTML = "check_box";
 
