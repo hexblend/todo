@@ -1,6 +1,12 @@
-// Button IDs
+// Create Buttons With These IDs
 // #LoginButton
 // #LogOutButton
+
+// GlobalData.CurrentList Contains the current working list
+// GlobalData.AllLists[CurrentDate] also contains the current working list
+// CurrentDate variable format as YYYY-MM-DD
+// GlobalData.AllLists contains all lists
+// GlobalData.UserData contains user data (Display Name, Profile Picture, Email, UID)
 
 console.log("Starting Firebase...");
 function GetDate() {
@@ -30,7 +36,7 @@ var GlobalData = {
     AllLists: {},
     CurrentList: {}
 };
-GlobalData.CurrentList[CurrentDate] = {};
+GlobalData.CurrentList = {};
 // Initialize Firebase
 firebase.initializeApp(GlobalData.FirebaseConfig);
 var Database = firebase.database();
@@ -75,7 +81,7 @@ firebase
             Email: e.email,
             Credential: e.credential
         };
-        console.error(FB_DATA);
+        console.error(FB_DATA.Error);
     });
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
@@ -103,10 +109,14 @@ firebase.auth().onAuthStateChanged(function(user) {
                 .database()
                 .ref("/UserLists/" + FB_DATA["UID"])
                 .on("value", function(snapshot) {
-                    console.log(snapshot.val());
-                    GlobalData.AllLists = snapshot.val();
-                    GlobalData.CurrentList[CurrentDate] =
-                        GlobalData.AllLists[CurrentDate];
+                    if (snapshot.val()) {
+                        console.log(snapshot.val());
+                        GlobalData.AllLists = snapshot.val();
+                        if (GlobalData.AllLists[CurrentDate]) {
+                            GlobalData.CurrentList =
+                                GlobalData.AllLists[CurrentDate];
+                        }
+                    }
                 });
         }
     } else {
@@ -128,24 +138,24 @@ firebase.auth().onAuthStateChanged(function(user) {
 });
 
 function AddToList(v) {
-    GlobalData.CurrentList[CurrentDate][v] = {
+    GlobalData.CurrentList[v] = {
         Checked: false
     };
     SetFireBaseList();
 }
 
 function CheckListElem(Elem) {
-    GlobalData.CurrentList[CurrentDate][Elem].Checked = true;
+    GlobalData.CurrentList[Elem].Checked = true;
     SetFireBaseList();
 }
 
 function UnCheckListElem(Elem) {
-    GlobalData.CurrentList[CurrentDate][Elem].Checked = false;
+    GlobalData.CurrentList[Elem].Checked = false;
     SetFireBaseList();
 }
 
 function DeleteListElem(Elem) {
-    delete GlobalData.CurrentList[CurrentDate][Elem];
+    delete GlobalData.CurrentList[Elem];
     SetFireBaseList();
 }
 
@@ -153,5 +163,5 @@ function SetFireBaseList() {
     firebase
         .database()
         .ref("/UserLists/" + FB_DATA["UID"] + "/" + CurrentDate)
-        .set(GlobalData.CurrentList[CurrentDate]);
+        .set(GlobalData.CurrentList);
 }
