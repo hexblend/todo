@@ -220,7 +220,7 @@ function AddToPage() {
         if (GlobalData.CurrentList[k].Checked) {
         } else {
             // Inserted Value
-            var input_value = GlobalData.CurrentList[k];
+            var input_value = k;
 
             // Display Todo Section
             list.style.display = "block";
