@@ -25,12 +25,12 @@ function GetDate() {
 var CurrentDate = GetDate();
 var GlobalData = {
     FirebaseConfig: {
-        apiKey: "AIzaSyA8a6WnwAyOeq61gmtKwS6Oa0TNdY6M5Bo",
-        authDomain: "vladb-todo.firebaseapp.com",
-        databaseURL: "https://vladb-todo.firebaseio.com",
-        projectId: "vladb-todo",
+        apiKey: "AIzaSyCMpG0y-DNwT057GwVXXVM3Sm3C_7LuXHg",
+        authDomain: "to-do-app-3ceab.firebaseapp.com",
+        databaseURL: "https://to-do-app-3ceab.firebaseio.com",
+        projectId: "to-do-app-3ceab",
         storageBucket: "",
-        messagingSenderId: "180513059705"
+        messagingSenderId: "1017031331547"
     },
     UserData: null,
     AllLists: {},
