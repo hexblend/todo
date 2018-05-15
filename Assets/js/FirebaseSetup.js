@@ -168,6 +168,11 @@ function DeleteListElem(Elem) {
     SetFireBaseList();
 }
 
+function DeleteAllElem() {
+    GlobalData.CurrentList = {};
+    SetFireBaseList();
+}
+
 function SetFireBaseList() {
     firebase
         .database()
