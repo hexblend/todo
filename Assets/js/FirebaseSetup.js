@@ -14,7 +14,7 @@ function GetDate() {
     if (mm < 10) {
         mm = "0" + mm;
     }
-    return dd + "." + mm + "." + yyyy;
+    return yyyy + "/" + mm + "/" + dd;
 }
 var CurrentDate = GetDate();
 var GlobalData = {
@@ -150,6 +150,6 @@ function DeleteListElem(Elem) {
 function SetFireBaseList() {
     firebase
         .database()
-        .ref("/UserLists/" + FB_DATA["UID"] + CurrentDate)
+        .ref("/UserLists/" + FB_DATA["UID"] + "/" + CurrentDate)
         .set(GlobalData.CurrentList[CurrentDate]);
 }
