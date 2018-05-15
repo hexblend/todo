@@ -86,8 +86,12 @@ firebase
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
         console.log("User Already Logged In.");
-        if (location.pathname == "/todo/login.html") {
-            location.pathname = "/todo/index.html";
+        if (
+            location.pathname == "/todo/login.html" ||
+            "/todo/login" ||
+            "/login.html"
+        ) {
+            location.pathname = "/todo";
         } else {
             var OUT = document.querySelector("#LogOutButton");
             if (OUT) {
@@ -120,7 +124,7 @@ firebase.auth().onAuthStateChanged(function(user) {
         }
     } else {
         console.log("User Log In Required.");
-        if (location.pathname == "/todo/index.html") {
+        if (location.pathname == "/todo/index.html" || "/todo" || "/") {
             location.pathname = "/todo/login.html";
         } else {
             var LB = document.querySelector("#LoginButton");
