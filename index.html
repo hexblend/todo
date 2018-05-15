@@ -17,72 +17,13 @@
 </head>
 <body>
     <div class="header">
-        <h1 class="center">Today's Plan</h1>
-        <p class="center date_holder">Tuesday, 08/05/2018</p>
+        <h1 class="center">TO DO APP</h1>
+        <h2 class="center">LOG IN</h2>
     </div>
     <div class="container">
-        <form class="col s12">
-            <div class="row center">
-                <div class="input-field col s11">
-                    <input id="add_activity" type="text" class="validate" autocomplete="off">
-                    <label id="label" for="add_activity">Add activity</label>
-                </div>
-                <button class="btn-floating waves-effect waves-light red" type="submit" name="action" onclick="add_input_activity();">+</button>
-            </div>
-        </form>
-        <h3 class="center todo_list_title">Activities To Do
-            <span class="todo-counter">0</span>
-            <a href="#!" class="waves-effect waves-light btn-flat dropdown_btn_a" onclick="hide_section_a();">
-                <i class="material-icons">arrow_drop_up</i>
-            </a>
-        </h3>
-        <ul class="collection todo-collection">
-            <!-- <li class="collection-item">
-                <div class="row">
-                    <div class="col s8">
-                        <p class="item-text">OMG MERGE</p>
-                    </div>
-                    <div class="col s4">
-                        <div class="buttons">
-                            <a class="secondary-content todo_btn">
-                                <i class="material-icons unchecked-box">check_box_outline_blank</i>
-                            </a>
-                            <a class="secondary-content delete_btn">
-                                <i class="material-icons delete-icon">delete</i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </li> -->
-        </ul>
-        <h3 class="center done_list_title">Activities Done
-            <span class="done-counter">0</span>
-            <a href="#!" class="waves-effect waves-light btn-flat dropdown_btn_b" onclick="hide_section_b();">
-                <i class="material-icons">arrow_drop_up</i>
-            </a>
-        </h3>
-        <ul class="collection todo-collection done-collection">
-            <!-- <li class="collection-item">
-                <div class="row">
-                    <div class="col s8">
-                        <p class="item-text">Blah BLah</p>
-                    </div>
-                    <div class="col s4">
-                        <div class="buttons">
-                            <a class="secondary-content todo_btn">
-                                <i class="material-icons checked-box">check_box</i>
-                            </a>
-                            <a class="secondary-content delete_btn">
-                                <i class="material-icons delete-icon">delete</i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </li> -->
-        </ul>
-        <div class="center end-btn-container">
-            <a class="waves-effect waves-light btn grey end-btn" onclick="delete_day();">End of the day [Delete all]</a>
-        </div>
+        <hr>
+        <button id="LoginButton">Log In</button>
+        <hr>
     </div>
     <!-- Jquery -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
