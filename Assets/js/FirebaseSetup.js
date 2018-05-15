@@ -122,7 +122,7 @@ firebase.auth().onAuthStateChanged(function(user) {
                     }
                 });
             document.querySelector(".header h1").innerText =
-                "Today's Plan For You, " + GlobalData.UserData.DisplayName;
+                "Today's Plan For You," + GlobalData.UserData.DisplayName;
         }
     } else {
         console.log("User Log In Required.");
