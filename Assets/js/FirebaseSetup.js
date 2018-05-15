@@ -72,11 +72,8 @@ firebase
                 } else {
                     GlobalData.UserData = snapshot.val();
                 }
-                document.querySelector("#user_image").src =
-                    GlobalData.UserData.ProfilePicture;
-                document.querySelector(
-                    "#user_name"
-                ).innerTEXT = GlobalData.UserData.DisplayName.split(" ")[0];
+                document.querySelector("#user_image").src = GlobalData.UserData.ProfilePicture;
+                document.querySelector("#user_name").innerTEXT = GlobalData.UserData.DisplayName.split(" ")[0];
             });
     })
     .catch(function(e) {
@@ -91,11 +88,7 @@ firebase
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
         console.log("User Already Logged In.");
-        if (
-            location.pathname == "/todo/index.html" ||
-            location.pathname == "/todo/index" ||
-            location.pathname == "/"
-        ) {
+        if (location.pathname == "/todo/index.html" || location.pathname == "/todo/index" || location.pathname == "/") {
             location.pathname = "/app.html"; // /todo/app.html
         } else {
             var OUT = document.querySelector("#LogOutButton");
@@ -121,19 +114,14 @@ firebase.auth().onAuthStateChanged(function(user) {
                         console.log(snapshot.val());
                         GlobalData.AllLists = snapshot.val();
                         if (GlobalData.AllLists[CurrentDate]) {
-                            GlobalData.CurrentList =
-                                GlobalData.AllLists[CurrentDate];
+                            GlobalData.CurrentList = GlobalData.AllLists[CurrentDate];
                         }
                     }
                 });
         }
     } else {
         console.log("User Log In Required.");
-        if (
-            location.pathname == "/todo/app.html" ||
-            location.pathname == "/todo/app" ||
-            location.pathname == "/app.html"
-        ) {
+        if (location.pathname == "/todo/app.html" || location.pathname == "/todo/app" || location.pathname == "/app.html") {
             location.pathname = "/"; // /todo
         } else {
             var LB = document.querySelector("#LoginButton");
