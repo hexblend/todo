@@ -88,10 +88,10 @@ firebase.auth().onAuthStateChanged(function(user) {
         console.log("User Already Logged In.");
         if (
             location.pathname == "/todo/login.html" ||
-            "/todo/login" ||
-            "/login.html"
+            location.pathname == "/todo/login" ||
+            location.pathname == "/login.html"
         ) {
-            location.pathname = "/";
+            location.pathname = "/"; // /todo
         } else {
             var OUT = document.querySelector("#LogOutButton");
             if (OUT) {
@@ -100,7 +100,7 @@ firebase.auth().onAuthStateChanged(function(user) {
                         .auth()
                         .signOut()
                         .then(function() {
-                            location.pathname = "/login.html";
+                            location.pathname = "/login.html"; // /todo/login.html
                         })
                         .catch(function(e) {
                             console.warn(e);
@@ -124,8 +124,12 @@ firebase.auth().onAuthStateChanged(function(user) {
         }
     } else {
         console.log("User Log In Required.");
-        if (location.pathname == "/todo/index.html" || "/todo" || "/") {
-            location.pathname = "/login.html";
+        if (
+            location.pathname == "/todo/index.html" ||
+            location.pathname == "/todo" ||
+            location.pathname == "/"
+        ) {
+            location.pathname = "/login.html"; // /todo/login.html
         } else {
             var LB = document.querySelector("#LoginButton");
             if (LB) {
