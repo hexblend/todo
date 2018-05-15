@@ -104,7 +104,7 @@ firebase.auth().onAuthStateChanged(function(user) {
                         .auth()
                         .signOut()
                         .then(function() {
-                            location.pathname = "/todo"; // /todo
+                            location.pathname = "/todo/app.html"; // /todo
                         })
                         .catch(function(e) {
                             console.warn(e);
