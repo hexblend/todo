@@ -75,6 +75,10 @@ firebase
                 document.querySelector(".header h1").innerHTML =
                     "Today's Plan For You" +
                     GlobalData.UserData.DisplayName;
+                document.querySelector("#user_image").src =
+                    GlobalData.UserData.ProfilePicture;
+                document.querySelector("#user_name").innerTEXT =
+                    GlobalData.UserData.DisplayName;
             });
     })
     .catch(function(e) {
