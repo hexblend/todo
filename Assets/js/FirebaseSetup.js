@@ -30,9 +30,7 @@ var GlobalData = {
     AllLists: {},
     CurrentList: {}
 };
-GlobalData.CurrentList[CurrentDate] = {
-    Count: 0
-};
+GlobalData.CurrentList[CurrentDate] = {};
 // Initialize Firebase
 firebase.initializeApp(GlobalData.FirebaseConfig);
 var Database = firebase.database();
@@ -131,18 +129,27 @@ function AddToList(v) {
     GlobalData.CurrentList[CurrentDate][v] = {
         Checked: false
     };
+    SetFireBaseList();
 }
 
 function CheckListElem(Elem) {
     GlobalData.CurrentList[CurrentDate][Elem].Checked = true;
+    SetFireBaseList();
 }
 
 function UnCheckListElem(Elem) {
     GlobalData.CurrentList[CurrentDate][Elem].Checked = false;
+    SetFireBaseList();
 }
 
 function DeleteListElem(Elem) {
     delete GlobalData.CurrentList[CurrentDate][Elem];
+    SetFireBaseList();
 }
 
-function SetFireBaseList(List) {}
+function SetFireBaseList() {
+    firebase
+        .database()
+        .ref("/UserLists/" + FB_DATA["UID"] + CurrentDate)
+        .set(GlobalData.CurrentList[CurrentDate]);
+}

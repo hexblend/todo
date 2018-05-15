@@ -82,6 +82,7 @@ if (done_list.children.length == 0) {
 function delete_day() {
     list.innerHTML = "";
     done_list.innerHTML = "";
+    GlobalData.CurrentList[CurrentDate] = {};
 
     // Hide everything
     done_list.style.display = "none";
