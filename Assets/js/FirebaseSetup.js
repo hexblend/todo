@@ -260,10 +260,6 @@ function AddToPage() {
         // Inserted Value
         var input_value = k;
 
-        // Display Todo Section
-        list.style.display = "block";
-        document.querySelector(".todo_list_title").style.display = "block";
-
         // Creating HTML Tags & Classes
         var item = document.createElement("li");
         item.setAttribute("class", "collection-item");
@@ -326,31 +322,8 @@ function AddToPage() {
         // Clear input
         main_input.value = "";
 
-        // Check if the dropdown is hidden
-        if ((document.querySelector(".dropdown_btn_a").style.display = "none")) {
-            document.querySelector(".dropdown_btn_a").style.display = "inline-block";
-        }
-
-        if (list.children.length == 0) {
-            list.style.display = "none";
-            document.querySelector(".todo_list_title").style.display = "none";
-            document.querySelector(".end-btn").style.display = "none";
-        } else {
-            list.style.display = "block";
-            document.querySelector(".todo_list_title").style.display = "block";
-            document.querySelector(".end-btn").style.display = "block";
-        }
-
-        if (done_list.children.length == 0) {
-            done_list.style.display = "none";
-            document.querySelector(".done_list_title").style.display = "none";
-        } else {
-            done_list.style.display = "block";
-            document.querySelector(".done_list_title").style.display = "block";
-        }
-
-        // Counter
         if (GlobalData.CurrentList[k].Checked) {
+            // Counter
             done_btn.style.display = "block";
             todo_btn.style.display = "none";
             done_list.insertBefore(item, done_list.childNodes[0]);
@@ -362,6 +335,33 @@ function AddToPage() {
             list.insertBefore(item, list.childNodes[0]);
             list_counter++;
             list_counter_conatiner.innerHTML = list_counter;
+        }
+
+        // Check if the dropdown is hidden
+        if ((document.querySelector(".dropdown_btn_a").style.display = "none")) {
+            document.querySelector(".dropdown_btn_a").style.display = "inline-block";
+        }
+
+        if (list.children.length == 0) {
+            list.style.display = "none";
+            document.querySelector(".todo_list_title").style.display = "none";
+        } else {
+            list.style.display = "block";
+            document.querySelector(".todo_list_title").style.display = "block";
+        }
+
+        if (done_list.children.length == 0) {
+            done_list.style.display = "none";
+            document.querySelector(".done_list_title").style.display = "none";
+        } else {
+            done_list.style.display = "block";
+            document.querySelector(".done_list_title").style.display = "block";
+        }
+
+        if (done_list.children.length > 0 && list.children.length > 0) {
+            document.querySelector(".end-btn").style.display = "block";
+        } else {
+            document.querySelector(".end-btn").style.display = "none";
         }
     }
 }
