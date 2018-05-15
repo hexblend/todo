@@ -73,7 +73,7 @@ firebase
                     GlobalData.UserData = snapshot.val();
                 }
                 document.querySelector(".header h1").innerHTML =
-                    "Today's Plan For You<br>" +
+                    "Today's Plan For You" +
                     GlobalData.UserData.DisplayName;
             });
     })
