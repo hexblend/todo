@@ -99,109 +99,109 @@ function delete_day() {
     // done_list_counter_container.innerHTML = done_list_counter;
 }
 function delete_item() {
-    let parent = this.parentNode.parentNode.parentNode.parentNode.parentNode;
+    // let parent = this.parentNode.parentNode.parentNode.parentNode.parentNode;
     let item = this.parentNode.parentNode.parentNode.parentNode;
     DeleteListElem(item.querySelector(".item-text").innerText);
-    parent.removeChild(item);
+    // parent.removeChild(item);
 
-    // Delete Collections if Empty
-    if (list.children.length == 0 && done_list.children.length == 0) {
-        list.style.display = "none";
-        document.querySelector(".todo_list_title").style.display = "none";
-        document.querySelector(".end-btn").style.display = "none";
-    }
+    // // Delete Collections if Empty
+    // if (list.children.length == 0 && done_list.children.length == 0) {
+    //     list.style.display = "none";
+    //     document.querySelector(".todo_list_title").style.display = "none";
+    //     document.querySelector(".end-btn").style.display = "none";
+    // }
 
-    // Delete Dropdown If List Empy
-    if (list.children.length == 0) {
-        document.querySelector(".dropdown_btn_a").style.display = "none";
-    }
+    // // Delete Dropdown If List Empy
+    // if (list.children.length == 0) {
+    //     document.querySelector(".dropdown_btn_a").style.display = "none";
+    // }
 
-    if (done_list.children.length == 0) {
-        done_list.style.display = "none";
-        document.querySelector(".done_list_title").style.display = "none";
-    }
+    // if (done_list.children.length == 0) {
+    //     done_list.style.display = "none";
+    //     document.querySelector(".done_list_title").style.display = "none";
+    // }
 
-    // delete 'all btn' if todo list is empty and done list is not
-    if (list.children.length == 0 && done_list.children.length > 0) {
-        document.querySelector(".end-btn").style.display = "inline-block";
-    }
+    // // delete 'all btn' if todo list is empty and done list is not
+    // if (list.children.length == 0 && done_list.children.length > 0) {
+    //     document.querySelector(".end-btn").style.display = "inline-block";
+    // }
 
-    // Check What Delete Button Was clicked and then set the counter
-    if (parent.classList.contains("done-collection")) {
-        done_list_counter -= 1;
-        done_list_counter_container.innerHTML = done_list_counter;
-    } else if (parent.classList.contains("todo-collection")) {
-        list_counter -= 1;
-        list_counter_conatiner.innerHTML = list_counter;
-    }
+    // // Check What Delete Button Was clicked and then set the counter
+    // if (parent.classList.contains("done-collection")) {
+    //     done_list_counter -= 1;
+    //     done_list_counter_container.innerHTML = done_list_counter;
+    // } else if (parent.classList.contains("todo-collection")) {
+    //     list_counter -= 1;
+    //     list_counter_conatiner.innerHTML = list_counter;
+    // }
 }
 function uncheck_elem() {
     // Remove from Done Activities
-    let parent = this.parentNode.parentNode.parentNode.parentNode.parentNode;
+    // let parent = this.parentNode.parentNode.parentNode.parentNode.parentNode;
     let item = this.parentNode.parentNode.parentNode.parentNode;
     UnCheckListElem(item.querySelector(".item-text").innerText);
-    parent.removeChild(item);
+    // parent.removeChild(item);
 
-    // Hide Done Collection If Empty
-    if (parent.children.length == 0) {
-        document.querySelector(".done_list_title").style.display = "none";
-        parent.style.display = "none";
-    }
+    // // Hide Done Collection If Empty
+    // if (parent.children.length == 0) {
+    //     document.querySelector(".done_list_title").style.display = "none";
+    //     parent.style.display = "none";
+    // }
 
-    // Check If dropdown button is hidden to make it appear
-    if (document.querySelector(".todo-collection").children.length == 0) {
-        //document.querySelector('.todo_list_title').innerHTML = 'Activities To Do' + '<span class="todo-counter">' + ' (' + list_counter + ')' + '</span>' + '<a href="#!" class="waves-effect waves-red btn-flat dropdown_btn_a" onclick="hide_section_a();"><i class="material-icons">arrow_drop_up</i></a>';
-        document.querySelector(".dropdown_btn_a").style.display = "inline-block";
-    }
+    // // Check If dropdown button is hidden to make it appear
+    // if (document.querySelector(".todo-collection").children.length == 0) {
+    //     //document.querySelector('.todo_list_title').innerHTML = 'Activities To Do' + '<span class="todo-counter">' + ' (' + list_counter + ')' + '</span>' + '<a href="#!" class="waves-effect waves-red btn-flat dropdown_btn_a" onclick="hide_section_a();"><i class="material-icons">arrow_drop_up</i></a>';
+    //     document.querySelector(".dropdown_btn_a").style.display = "inline-block";
+    // }
 
-    // Add to 'To Do' Activities
-    list.insertBefore(item, list.childNodes[0]);
+    // // Add to 'To Do' Activities
+    // list.insertBefore(item, list.childNodes[0]);
 
-    // Remove Checked Link
-    document.querySelector(".done_btn").style.display = "none";
+    // // Remove Checked Link
+    // document.querySelector(".done_btn").style.display = "none";
 
-    // Add Unchecked Link
-    document.querySelector(".todo_btn").style.display = "block";
+    // // Add Unchecked Link
+    // document.querySelector(".todo_btn").style.display = "block";
 
-    // Counter
-    done_list_counter -= 1;
-    done_list_counter_container.innerHTML = done_list_counter;
-    list_counter += 1;
-    list_counter_conatiner.innerHTML = list_counter;
+    // // Counter
+    // done_list_counter -= 1;
+    // done_list_counter_container.innerHTML = done_list_counter;
+    // list_counter += 1;
+    // list_counter_conatiner.innerHTML = list_counter;
 }
 
 function todo_item() {
     // Remove from To Do Activities
-    let parent = this.parentNode.parentNode.parentNode.parentNode.parentNode;
+    // let parent = this.parentNode.parentNode.parentNode.parentNode.parentNode;
     let item = this.parentNode.parentNode.parentNode.parentNode;
     CheckListElem(item.querySelector(".item-text").innerText);
-    parent.removeChild(item);
+    // parent.removeChild(item);
 
-    // Hide Dropdown If Empty
-    if (parent.children.length == 0) {
-        document.querySelector(".dropdown_btn_a").style.display = "none";
-        //document.querySelector('.todo_list_title').innerHTML = "Good job! You've done all planned activities."
-    }
+    // // Hide Dropdown If Empty
+    // if (parent.children.length == 0) {
+    //     document.querySelector(".dropdown_btn_a").style.display = "none";
+    //     //document.querySelector('.todo_list_title').innerHTML = "Good job! You've done all planned activities."
+    // }
 
-    // Display Done section
-    done_list.style.display = "block";
-    document.querySelector(".done_list_title").style.display = "block";
-    document.querySelector(".end-btn").style.display = "inline-block";
+    // // Display Done section
+    // done_list.style.display = "block";
+    // document.querySelector(".done_list_title").style.display = "block";
+    // document.querySelector(".end-btn").style.display = "inline-block";
 
-    // Add to Done
-    done_list.insertBefore(item, done_list.childNodes[0]);
+    // // Add to Done
+    // done_list.insertBefore(item, done_list.childNodes[0]);
 
-    // Remove Unchecked Link
-    this.style.display = "none";
+    // // Remove Unchecked Link
+    // this.style.display = "none";
 
-    // Add Checked Link
-    document.querySelector(".done-collection .done_btn").style.display = "block";
+    // // Add Checked Link
+    // document.querySelector(".done-collection .done_btn").style.display = "block";
 
-    // Counter
-    done_list_counter += 1;
-    done_list_counter_container.innerHTML = done_list_counter;
-    list_counter -= 1;
-    list_counter_conatiner.innerHTML = list_counter;
+    // // Counter
+    // done_list_counter += 1;
+    // done_list_counter_container.innerHTML = done_list_counter;
+    // list_counter -= 1;
+    // list_counter_conatiner.innerHTML = list_counter;
 }
 function add_input_activity() {
     // Prevent Submision
