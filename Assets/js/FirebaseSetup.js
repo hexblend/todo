@@ -153,6 +153,8 @@ var done_list_counter = 0;
 var list_counter_conatiner = document.querySelector(".todo-counter");
 var done_list_counter_container = document.querySelector(".done-counter");
 
+var main_input = document.querySelector("#add_activity");
+
 if (list.children.length == 0) {
     list.style.display = "none";
     document.querySelector(".todo_list_title").style.display = "none";
