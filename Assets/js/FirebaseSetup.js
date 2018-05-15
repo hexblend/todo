@@ -72,8 +72,9 @@ firebase
                 } else {
                     GlobalData.UserData = snapshot.val();
                 }
-                document.querySelector(".header h1").innerText =
-                    "Today's Plan For You, " + GlobalData.UserData.DisplayName;
+                document.querySelector(".header h1").innerHTML =
+                    "Today's Plan For You<br>" +
+                    GlobalData.UserData.DisplayName;
             });
     })
     .catch(function(e) {
