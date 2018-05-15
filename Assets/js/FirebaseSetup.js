@@ -73,7 +73,7 @@ firebase
                     GlobalData.UserData = snapshot.val();
                 }
                 document.querySelector("#user_image").src = GlobalData.UserData.ProfilePicture;
-                document.querySelector("#user_name").innerTEXT = GlobalData.UserData.DisplayName.split(" ")[0];
+                document.querySelector("#user_name").innerText = GlobalData.UserData.DisplayName.split(" ")[0];
             });
     })
     .catch(function(e) {
