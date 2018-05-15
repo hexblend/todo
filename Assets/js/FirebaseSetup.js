@@ -14,7 +14,7 @@ function GetDate() {
     if (mm < 10) {
         mm = "0" + mm;
     }
-    return yyyy + "/" + mm + "/" + dd;
+    return yyyy + "-" + mm + "-" + dd;
 }
 var CurrentDate = GetDate();
 var GlobalData = {
