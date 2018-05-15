@@ -151,26 +151,37 @@ function AddToList(v) {
         Checked: false
     };
     SetFireBaseList();
+    AddToPage();
 }
 
 function CheckListElem(Elem) {
     GlobalData.CurrentList[Elem].Checked = true;
     SetFireBaseList();
+    AddToPage();
 }
 
 function UnCheckListElem(Elem) {
     GlobalData.CurrentList[Elem].Checked = false;
     SetFireBaseList();
+    AddToPage();
 }
 
 function DeleteListElem(Elem) {
     delete GlobalData.CurrentList[Elem];
     SetFireBaseList();
+    AddToPage();
 }
 
 function DeleteAllElem() {
     GlobalData.CurrentList = {};
     SetFireBaseList();
+    AddToPage();
+}
+
+function AddToPage() {
+    for (k in GlobalData.CurrentList) {
+        console.log(k);
+    }
 }
 
 function SetFireBaseList() {
