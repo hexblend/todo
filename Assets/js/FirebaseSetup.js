@@ -27,7 +27,7 @@ var GlobalData = {
     FirebaseConfig: {
         apiKey: "AIzaSyCMpG0y-DNwT057GwVXXVM3Sm3C_7LuXHg",
         authDomain: "to-do-app-3ceab.firebaseapp.com",
-        databaseURL: "https://todo-app-3ceab.firebaseio.com",
+        databaseURL: "https://to-do-app-3ceab.firebaseio.com",
         projectId: "to-do-app-3ceab",
         storageBucket: "to-do-app-3ceab.appspot.com",
         messagingSenderId: "1017031331547"
