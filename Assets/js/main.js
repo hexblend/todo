@@ -24,7 +24,10 @@ if (mm < 10) {
 }
 
 today = day + ", " + dd + "/" + mm + "/" + yyyy;
-document.querySelector(".date_holder").innerHTML = today;
+var DateHolder = document.querySelector(".date_holder");
+if (DateHolder) {
+    DateHolder.innerHTML = today;
+}
 
 // // Hide / Show Activities Lists [Dropdowns]
 // var list_a_show = true;

@@ -157,9 +157,11 @@ var done_list_counter_container = document.querySelector(".done-counter");
 var main_input = document.querySelector("#add_activity");
 
 // Hide / Show Activities Lists [Dropdowns]
-
-if ((document.querySelector(".dropdown_btn_a").style.display = "none")) {
-    document.querySelector(".dropdown_btn_a").style.display = "inline-block";
+var dropdown_btn_a = document.querySelector(".dropdown_btn_a");
+if (dropdown_btn_a) {
+    if ((dropdown_btn_a.style.display = "none")) {
+        dropdown_btn_a.style.display = "inline-block";
+    }
 }
 
 if (list.children.length == 0) {
