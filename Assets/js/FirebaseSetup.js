@@ -202,7 +202,6 @@ function DeleteAllElem() {
 function AddToPage() {
     list.innerHTML = "";
     done_list.innerHTML = "";
-    GlobalData.CurrentList = {};
 
     // Hide everything
     done_list.style.display = "none";
