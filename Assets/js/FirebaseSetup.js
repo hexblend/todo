@@ -99,7 +99,6 @@ firebase.auth().onAuthStateChanged(function(user) {
                             location.pathname = "/todo/login.html";
                         })
                         .catch(function(e) {
-                            alert(e);
                             console.warn(e);
                         });
                 });
