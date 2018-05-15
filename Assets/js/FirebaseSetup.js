@@ -121,7 +121,8 @@ firebase.auth().onAuthStateChanged(function(user) {
                         }
                     }
                 });
-            document.title = "Today's Plan For You, " + FB_DATA.DisplayName;
+            document.querySelector(".header h1").innerText =
+                "Today's Plan For You, " + FB_DATA.DisplayName;
         }
     } else {
         console.log("User Log In Required.");
