@@ -123,11 +123,6 @@ firebase.auth().onAuthStateChanged(function(user) {
                         }
                     }
                 });
-<<<<<<< HEAD
-            document.querySelector(".header h1").innerText =
-                "Today's Plan For You," + GlobalData.UserData.DisplayName;
-=======
->>>>>>> d9bb2bb7cc2ec8fc73ef5497c63456de7c9b5017
         }
     } else {
         console.log("User Log In Required.");
