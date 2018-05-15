@@ -312,11 +312,18 @@ function AddToPage() {
             list.style.display = "none";
             document.querySelector(".todo_list_title").style.display = "none";
             document.querySelector(".end-btn").style.display = "none";
+        } else {
+            list.style.display = "block";
+            document.querySelector(".todo_list_title").style.display = "block";
+            document.querySelector(".end-btn").style.display = "block";
         }
 
         if (done_list.children.length == 0) {
             done_list.style.display = "none";
             document.querySelector(".done_list_title").style.display = "none";
+        } else {
+            done_list.style.display = "block";
+            document.querySelector(".done_list_title").style.display = "block";
         }
 
         // Counter
