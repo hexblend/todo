@@ -358,8 +358,8 @@ function AddToPage() {
             document.querySelector(".done_list_title").style.display = "block";
         }
 
-        if (done_list.children.length > 0 && list.children.length > 0) {
-            document.querySelector(".end-btn").style.display = "block";
+        if (done_list.children.length > 0 || list.children.length > 0) {
+            document.querySelector(".end-btn").style.display = "inline-block";
         } else {
             document.querySelector(".end-btn").style.display = "none";
         }
