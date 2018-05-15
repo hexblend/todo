@@ -7,28 +7,8 @@ body
         background: url('../img/header.jpg') no-repeat center center
         background-size: cover
         height: 250px
-        border-bottom-left-radius: 7px
-        border-bottom-right-radius: 7px
-        .user_info
-            width: 100%
-            margin-top: 15px
-            display: inline-block
-            margin-bottom: 20px
-            #user_image
-                width: 70px
-                height: 70px
-                border-radius: 50%
-                display: inline-block
-                vertical-align: middle
-                margin-right: 10px
-            #user_name
-                display: inline-block
-                height: 100px
-                line-height: 100px
-                margin: 0
-                vertical-align: middle
-                font-size: 2em
-                color: white
+        // border-bottom-right-radius: 7px
+        // border-bottom-left-radius: 7px
         h1 
             margin: 0
             padding-top: 70px
@@ -36,6 +16,9 @@ body
             font-weight: 900
             color: $white
             font-size: 3em
+            @media(max-width: 356px)
+                font-size: 2.5em
+            
         p
             font-size: 1.3em
             color: lighten($orange,5%)
@@ -61,6 +44,38 @@ body
                     width: 85% !important
             button
                 margin-top: 15px
+        .user_info
+            width: 100%
+            margin-top: 15px
+            display: inline-block
+            margin-bottom: -20px
+            margin-top: -25px
+            background: rgba(255,255,255,1)
+            border-top-right-radius: 7px
+            border-top-left-radius: 7px
+            #user_image
+                width: 65px
+                height: 65px
+                border-radius: 50%
+                display: inline-block
+                vertical-align: middle
+                margin-right: 10px
+                box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)
+                transition: all 0.25s cubic-bezier(.25,.8,.25,1)
+                &:hover
+                    cursor: pointer
+                    width: 80px
+                    height: 80px
+                    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)
+            #user_name
+                display: inline-block
+                height: 100px
+                line-height: 100px
+                margin: 0
+                vertical-align: middle
+                font-size: 2em
+                color: black
+                font-weight: 300
 
     h2
         font-weight: 900
@@ -131,7 +146,11 @@ body
         .checked-box
             color: $orange
     .end-btn-container
-        margin-top: 50px
+        margin-top: 100px
+        margin-bottom: 30px;
+        a 
+            @media (max-width: 413px)
+                margin-bottom: 10px
 #LoginButton
     margin: 0 auto
     display: block
