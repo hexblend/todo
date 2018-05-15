@@ -72,8 +72,14 @@ firebase
                 } else {
                     GlobalData.UserData = snapshot.val();
                 }
-                document.querySelector("#user_image").src = GlobalData.UserData.ProfilePicture;
-                document.querySelector("#user_name").innerText = GlobalData.UserData.DisplayName.split(" ")[0];
+                var UserImage = document.querySelector("#user_image");
+                var UserName = document.querySelector("#user_name");
+                if (UserImage) {
+                    UserImage.src = GlobalData.UserData.ProfilePicture;
+                }
+                if (UserName) {
+                    UserName.innerText = GlobalData.UserData.DisplayName.split(" ")[0];
+                }
             });
     })
     .catch(function(e) {
