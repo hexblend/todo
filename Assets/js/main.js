@@ -99,8 +99,7 @@ function delete_day() {
 function delete_item() {
     let parent = this.parentNode.parentNode.parentNode.parentNode.parentNode;
     let item = this.parentNode.parentNode.parentNode.parentNode;
-    console.log(parent);
-    console.log(item);
+    DeleteListElem(item.querySelector(".item-text").innerText);
     parent.removeChild(item);
 
     // Delete Collections if Empty
@@ -138,8 +137,7 @@ function uncheck_elem() {
     // Remove from Done Activities
     let parent = this.parentNode.parentNode.parentNode.parentNode.parentNode;
     let item = this.parentNode.parentNode.parentNode.parentNode;
-    console.log(parent);
-    console.log(item);
+    UnCheckListElem(item.querySelector(".item-text").innerText);
     parent.removeChild(item);
 
     // Hide Done Collection If Empty
@@ -175,8 +173,7 @@ function todo_item() {
     // Remove from To Do Activities
     let parent = this.parentNode.parentNode.parentNode.parentNode.parentNode;
     let item = this.parentNode.parentNode.parentNode.parentNode;
-    console.log(parent);
-    console.log(item);
+    CheckListElem(item.querySelector(".item-text").innerText);
     parent.removeChild(item);
 
     // Hide Dropdown If Empty

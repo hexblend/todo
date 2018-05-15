@@ -133,10 +133,16 @@ function AddToList(v) {
     };
 }
 
-function CheckListElem() {}
+function CheckListElem(Elem) {
+    GlobalData.CurrentList[CurrentDate][Elem].Checked = true;
+}
 
-function UnCheckListElem() {}
+function UnCheckListElem(Elem) {
+    GlobalData.CurrentList[CurrentDate][Elem].Checked = false;
+}
 
-function DeleteListElem() {}
+function DeleteListElem(Elem) {
+    delete GlobalData.CurrentList[CurrentDate][Elem];
+}
 
 function SetFireBaseList(List) {}
