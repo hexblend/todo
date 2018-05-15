@@ -121,6 +121,7 @@ firebase.auth().onAuthStateChanged(function(user) {
                         GlobalData.AllLists = snapshot.val();
                         if (GlobalData.AllLists[CurrentDate]) {
                             GlobalData.CurrentList = GlobalData.AllLists[CurrentDate];
+                            AddToPage();
                         }
                     }
                 });
@@ -142,6 +143,29 @@ firebase.auth().onAuthStateChanged(function(user) {
         }
     }
 });
+
+// Activities / Done Lists
+var list = document.querySelector(".todo-collection");
+var done_list = document.querySelector(".done-collection");
+
+var list_counter = 0;
+var done_list_counter = 0;
+
+var list_counter_conatiner = document.querySelector(".todo-counter");
+var done_list_counter_container = document.querySelector(".done-counter");
+
+var main_input = document.querySelector("#add_activity");
+
+if (list.children.length == 0) {
+    list.style.display = "none";
+    document.querySelector(".todo_list_title").style.display = "none";
+    document.querySelector(".end-btn").style.display = "none";
+}
+
+if (done_list.children.length == 0) {
+    done_list.style.display = "none";
+    document.querySelector(".done_list_title").style.display = "none";
+}
 
 function AddToList(v) {
     GlobalData.CurrentList[v] = {
@@ -176,8 +200,106 @@ function DeleteAllElem() {
 }
 
 function AddToPage() {
+    list.innerHTML = "";
+    done_list.innerHTML = "";
+    GlobalData.CurrentList[CurrentDate] = {};
+
+    // Hide everything
+    done_list.style.display = "none";
+    document.querySelector(".done_list_title").style.display = "none";
+    list.style.display = "none";
+    document.querySelector(".todo_list_title").style.display = "none";
+    document.querySelector(".end-btn").style.display = "none";
+
+    // Set counter to 0
+    list_counter = 0;
+    list_counter_conatiner.innerHTML = list_counter;
+    done_list_counter = 0;
+    done_list_counter_container.innerHTML = done_list_counter;
     for (k in GlobalData.CurrentList) {
         console.log(k);
+        if (GlobalData.CurrentList[k].Checked) {
+        } else {
+            // Inserted Value
+            var input_value = k;
+
+            // Display Todo Section
+            list.style.display = "block";
+            document.querySelector(".todo_list_title").style.display = "block";
+
+            // Creating HTML Tags & Classes
+            var item = document.createElement("li");
+            item.setAttribute("class", "collection-item");
+            var row_div = document.createElement("div");
+            row_div.setAttribute("class", "row");
+            var s_eight_div = document.createElement("div");
+            s_eight_div.setAttribute("class", "col s8");
+            var s_four_div = document.createElement("div");
+            s_four_div.setAttribute("class", "col s4");
+            var item_text = document.createElement("p");
+            item_text.setAttribute("class", "item-text");
+            item_text.innerHTML = input_value;
+            var buttons_div = document.createElement("div");
+            buttons_div.setAttribute("class", "buttons");
+            var todo_btn = document.createElement("a");
+            todo_btn.setAttribute("class", "secondary-content todo_btn");
+            var unchecked_icon = document.createElement("i");
+            unchecked_icon.setAttribute("class", "material-icons unchecked-box");
+            unchecked_icon.innerHTML = "check_box_outline_blank";
+            var delete_btn = document.createElement("a");
+            delete_btn.setAttribute("class", "secondary-content delete_btn");
+            var delete_icon = document.createElement("i");
+            delete_icon.setAttribute("class", "material-icons delete-icon");
+            delete_icon.innerHTML = "delete";
+            var done_btn = document.createElement("a");
+            done_btn.setAttribute("class", "secondary-content done_btn");
+            var checked_icon = document.createElement("i");
+            checked_icon.setAttribute("class", "material-icons checked-box");
+            checked_icon.innerHTML = "check_box";
+
+            // Event on Delete button
+            delete_btn.addEventListener("click", delete_item);
+
+            // Event on todo button
+            todo_btn.addEventListener("click", todo_item);
+
+            // Event on done button
+            done_btn.addEventListener("click", uncheck_elem);
+
+            // Appending Childs
+            delete_btn.appendChild(delete_icon);
+            todo_btn.appendChild(unchecked_icon);
+            done_btn.appendChild(checked_icon);
+            buttons_div.appendChild(todo_btn);
+            buttons_div.appendChild(done_btn);
+            buttons_div.appendChild(delete_btn);
+            s_four_div.appendChild(buttons_div);
+            s_eight_div.appendChild(item_text);
+            row_div.appendChild(s_eight_div);
+            row_div.appendChild(s_four_div);
+            item.appendChild(row_div);
+
+            // Hide checked btn
+            done_btn.style.display = "none";
+
+            // Insert Item
+            list.insertBefore(item, list.childNodes[0]);
+
+            // Display Delete All Btn
+            document.querySelector(".end-btn").style.display = "inline-block";
+
+            // Clear input
+            main_input.value = "";
+
+            // Check if the dropdown is hidden
+            if ((document.querySelector(".dropdown_btn_a").style.display = "none")) {
+                document.querySelector(".dropdown_btn_a").style.display = "inline-block";
+            }
+
+            // Counter
+            list_counter += 1;
+            list_counter_conatiner.innerHTML = list_counter;
+        }
     }
 }
 
