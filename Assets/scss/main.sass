@@ -17,12 +17,16 @@ body
             color: $white
             font-size: 3em
             @media(max-width: 356px)
-                font-size: 2.5em
+                padding-top: 80px
+                font-size: 2.3em
             
         p
-            font-size: 1.3em
+            font-size: 1.6em
             color: lighten($orange,5%)
-            letter-spacing: 0.1em
+            letter-spacing: 1px
+            margin-top: 15px
+            @media(max-width: 356px)
+                font-size: 1.5em
     
     .container
         form 
@@ -77,9 +81,20 @@ body
                 color: black
                 font-weight: 300
 
+    .index-header
+        border-bottom-left-radius: 7px
+        border-bottom-right-radius: 7px
+        background: url('../img/header-login.jpg') no-repeat center bottom
+        background-size: cover
+        height: 250px
     h2
-        font-weight: 900
+        color: white
+        font-size: 2.5em
+        font-weight: 300
+        letter-spacing: 1px
         margin-top: 15px
+        @media(max-width: 356px)
+                font-size: 2em
     h3
         font-size: 1.5em
         margin-bottom: 20px
