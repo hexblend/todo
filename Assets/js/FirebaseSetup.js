@@ -121,6 +121,7 @@ firebase.auth().onAuthStateChanged(function(user) {
                         GlobalData.AllLists = snapshot.val();
                         if (GlobalData.AllLists[CurrentDate]) {
                             GlobalData.CurrentList = GlobalData.AllLists[CurrentDate];
+                            AddToPage();
                         }
                     }
                 });
