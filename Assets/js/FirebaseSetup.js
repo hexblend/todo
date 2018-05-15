@@ -94,7 +94,7 @@ firebase
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
         console.log("User Already Logged In.");
-        if (location.pathname == "/todo/index.html" || location.pathname == "/todo/index" || location.pathname == "/todo") {
+        if (location.pathname == "/todo/index.html" || location.pathname == "/todo/index" || location.pathname == "/todo" || location.pathname == "/todo/") {
             location.pathname = "/todo/app.html"; // /todo/app.html
         } else {
             var OUT = document.querySelector("#LogOutButton");
