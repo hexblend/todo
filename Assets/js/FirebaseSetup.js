@@ -104,7 +104,9 @@ firebase.auth().onAuthStateChanged(function(user) {
                 .ref("/UserLists/" + FB_DATA["UID"])
                 .on("value", function(snapshot) {
                     console.log(snapshot.val());
-                    GlobalData.UserData.AllLists = snapshot.val();
+                    GlobalData.AllLists = snapshot.val();
+                    GlobalData.CurrentList[CurrentDate] =
+                        GlobalData.AllLists[CurrentDate];
                 });
         }
     } else {
