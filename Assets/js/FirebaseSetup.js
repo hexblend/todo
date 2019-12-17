@@ -94,8 +94,8 @@ firebase
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
         console.log("User Already Logged In.");
-        if (location.pathname == "/todo/index.html" || location.pathname == "/todo/index" || location.pathname == "/todo" || location.pathname == "/todo/") {
-            location.pathname = "/todo/app.html"; // /todo/app.html
+        if (location.pathname == "/index.html" || location.pathname == "/") {
+            location.pathname = "/app.html"; 
         } else {
             var OUT = document.querySelector("#LogOutButton");
             if (OUT) {
@@ -104,7 +104,7 @@ firebase.auth().onAuthStateChanged(function(user) {
                         .auth()
                         .signOut()
                         .then(function() {
-                            location.pathname = "/todo"; // /todo
+                            location.pathname = "/"; // /todo
                         })
                         .catch(function(e) {
                             console.warn(e);
@@ -130,8 +130,8 @@ firebase.auth().onAuthStateChanged(function(user) {
         }
     } else {
         console.log("User Log In Required.");
-        if (location.pathname == "/todo/app.html" || location.pathname == "/todo/app" || location.pathname == "/todo/app.html") {
-            location.pathname = "/todo"; // /todo
+        if (location.pathname == "/app.html" || location.pathname == "/app" || location.pathname == "app.html") {
+            location.pathname = "/";
         } else {
             var LB = document.querySelector("#LoginButton");
             if (LB) {
